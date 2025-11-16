@@ -1,0 +1,23 @@
+databases:
+  - name: simple_blog_production
+    databaseName: simple_blog_production
+    user: sumar # change it with your username
+    plan: free
+
+services:
+  - type: web
+    name: simple_blog
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh" # runs the build script
+    # preDeployCommand: "./bin/rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "./bin/rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: simple_blog_production
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
