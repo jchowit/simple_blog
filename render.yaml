@@ -1,6 +1,6 @@
 databases:
   - name: simple_blog_production
-    databaseName: simple_blog_production_clus
+    databaseName: simple_blog_production
     user: jchowit # change it with your username
     plan: free
 
