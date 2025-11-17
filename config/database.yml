@@ -89,7 +89,7 @@ production:
     <<: *default
     database: simple_blog_production
     username: simple_blog
-    password: <%= ENV["SIMPLE_BLOG_DATABASE_PASSWORD"] %>
+    password: <%= ENV["MY_BLOG_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: simple_blog_production_cache
